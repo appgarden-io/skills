@@ -57,7 +57,24 @@ pnpm run dev  # run this in the background so you can continue
 
 If `pnpm` is not installed, suggest installing it with `npm install -g pnpm` or `corepack enable`.
 
-### 6. Verify the dev server with agent-browser
+### 6. Check that agent-browser is installed
+
+Before verifying the dev server, ensure the `agent-browser` CLI is available:
+
+```bash
+agent-browser --version
+```
+
+- If the command succeeds, move on to the next step.
+- If `agent-browser` is **not installed**, install it globally and download Chromium:
+  ```bash
+  npm install -g agent-browser
+  agent-browser install
+  ```
+  On Linux, if Chromium dependencies are missing, run `agent-browser install --with-deps`.
+- See https://github.com/vercel-labs/agent-browser for more details.
+
+### 7. Verify the dev server with agent-browser
 
 After the dev server starts, use the `agent-browser` CLI to verify it's actually running and rendering correctly. Wait a few seconds for the server to be ready, then:
 
@@ -83,7 +100,7 @@ After the dev server starts, use the `agent-browser` CLI to verify it's actually
 
 Check the snapshot output for expected content (e.g. an "Home" heading, interactive elements). If the page loaded and has the expected content, the server is working. If the snapshot shows an error page or is empty, debug the issue before continuing.
 
-### 7. Confirm and hand off
+### 8. Confirm and hand off
 
 Let the user know the project is ready. Mention:
 - The repo URL: `https://github.com/appgarden-io/<project-name>`
