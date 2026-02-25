@@ -4,8 +4,22 @@ Shared Claude skills for the appgarden team.
 
 ## Installing a skill
 
+Claude discovers skills automatically from `~/.claude/skills/`. To install a skill from this repo, clone it and symlink the skill you want:
+
 ```bash
-claude install-skill https://github.com/appgarden-io/skills/tree/main/<skill-name>
+# Clone this repo into your appgarden directory (if you haven't already)
+git clone https://github.com/appgarden-io/skills.git
+
+# Symlink the skill into your local Claude skills directory
+ln -s "$(pwd)/skills/start-new-project" ~/.claude/skills/start-new-project
+```
+
+The symlink approach keeps everything in sync — when the repo is updated with `git pull`, your local skill updates too.
+
+Alternatively, you can copy a skill directly:
+
+```bash
+cp -r skills/start-new-project ~/.claude/skills/
 ```
 
 ## Available skills
